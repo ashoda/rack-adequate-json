@@ -1,6 +1,6 @@
 # Rack Adequate Json
 
-Filters JSON response given attribute names to reduce payload size
+Rack Middleware to reduce size of json payload - Allows clients consuming json api to select attributes within payload
 
 [![Gem Version](https://badge.fury.io/rb/rack-adequate-json.svg)](http://badge.fury.io/rb/rack-adequate-json)
 
