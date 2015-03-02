@@ -1,6 +1,6 @@
 # Rack Adequate Json
 
-Filters json response given field names to reduce the size of the payload
+Filters JSON response given attribute names to reduce payload size
 
 ## Installation
 
