@@ -8,7 +8,7 @@ Filters JSON response given attribute names to reduce payload size
 
 Add this line to your application's Gemfile:
 
-    gem 'rack-adequate-json'
+    gem 'rack-adequate-json' , require: 'rack/adequate_json'
 
 And then execute:
 
