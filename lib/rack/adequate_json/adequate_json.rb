@@ -47,9 +47,11 @@ module Rack
     end
 
     def response_stream(&block)
-      body = @response.map do |body|
-        block ? block.call(body) : body
+      body = []
+      @response.each do |body_part|
+        body << ( block ? block.call(body_part) : body_part)
       end
+      body
     end
 
     def slice_data!(data, fields)
