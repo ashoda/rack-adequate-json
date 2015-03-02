@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Rack::AdequateJson::VERSION
   spec.authors       = ["Ashod Ayanyan"]
   spec.email         = ["aayanyan@gmail.com"]
-  spec.summary       = %q{Allows clients consuming json apis to select fields to be returned}
-  spec.description   = %q{ }
-  spec.homepage      = ""
+  spec.summary       = %q{Rack Middleware to reduce side of json payload}
+  spec.description   = %q{Allows clients consuming json apis to select fields within payload to be returned}
+  spec.homepage      = "https://github.com/ashoda/rack-adequate-json"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rack-test"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rake" , "~> 10.4"
+  spec.add_development_dependency "rspec", "~> 3.2"
+  spec.add_development_dependency "rack-test", "~> 0.6"
+  spec.add_development_dependency "pry", "~> 0.10"
 end
