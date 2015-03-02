@@ -2,6 +2,8 @@
 
 Filters JSON response given attribute names to reduce payload size
 
+[![Gem Version](https://badge.fury.io/rb/rack-adequate-json.svg)](http://badge.fury.io/rb/rack-adequate-json)
+
 ## Installation
 
 Add this line to your application's Gemfile:
