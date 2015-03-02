@@ -1,6 +1,6 @@
-# Rack::AdequateJson
+# Rack Adequate Json
 
-TODO: Write a gem description
+Filters json response given field names to reduce the size of the payload
 
 ## Installation
 
@@ -16,9 +16,38 @@ Or install it yourself as:
 
     $ gem install rack-adequate-json
 
-## Usage
+## Configure
 
-TODO: Write usage instructions here
+### Rails
+
+``` ruby  
+#config/application.rb
+module AppName
+  class Application < Rails::Application
+    # Middleware options
+    # root: the root key for the json payload     , default: nil
+    # target_param: query param of filter fields  , default: 'fields'
+    config.middleware.use 'Rack::AdequateJson' , { root: 'data' }
+  end
+end
+```
+
+### Sinatra
+
+``` ruby
+require 'rack/adequate_json'
+
+class AppName < Sinatra::Base
+  configure do
+    # Middleware options
+    # root: the root key for the json payload     , default: nil
+    # target_param: query param of filter fields  , default: 'fields'
+    use Rack::AdequateJson , { root: 'data' , target_param: 'select' }
+  end
+end
+
+```
+
 
 ## Contributing
 
