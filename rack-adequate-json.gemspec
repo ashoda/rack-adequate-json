@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Rack::AdequateJson::VERSION
   spec.authors       = ["Ashod Ayanyan"]
   spec.email         = ["aayanyan@gmail.com"]
-  spec.summary       = %q{Rack Middleware to reduce side of json payload}
-  spec.description   = %q{Allows clients consuming json apis to select fields within payload to be returned}
+  spec.summary       = %q{Rack Middleware to reduce size of json payload}
+  spec.description   = %q{Rack Middleware to reduce size of json payload - Allows clients consuming json apis to select attributes within payload}
   spec.homepage      = "https://github.com/ashoda/rack-adequate-json"
   spec.license       = "MIT"
 
