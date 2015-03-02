@@ -1,6 +1,6 @@
 module Rack
   class AdequateJson
-    attr_reader :app, :root, :target_param, :status, :headers, :response
+    attr_reader :app, :root, :target_param, :status, :headers
 
     def initialize(app , options={})
       @app = app
@@ -11,9 +11,9 @@ module Rack
     def call(env)
       call_and_setup(env)
       if content_type_json? && filter_fields
-        [status, headers, [filtered_json_body]]
+        [ status, headers, response_stream { |b| filter_json_body(b) } ]
       else
-        [status, headers, response]
+        [status, headers, response_stream]
       end
     end
 
@@ -25,8 +25,8 @@ module Rack
       @filter_fields = nil
     end
 
-    def filtered_json_body
-      json_body = JSON.parse(response.body)
+    def filter_json_body(body)
+      json_body = JSON.parse(body)
       data = root ? json_body[root] : json_body
 
       if data.is_a?(Hash)
@@ -46,8 +46,18 @@ module Rack
       end
     end
 
+    def response_stream(&block)
+      body = @response.map do |body|
+        block ? block.call(body) : body
+      end
+    end
+
     def slice_data!(data, fields)
       data.select!{|k,v| fields.include?(k) } if fields
+    end
+
+    def request(env)
+      Rack::Request.new(env)
     end
 
     def params
@@ -58,8 +68,6 @@ module Rack
       @headers["Content-Type"].include?("json")
     end
 
-    def request(env)
-      Rack::Request.new(env)
-    end
+
   end
 end

@@ -18,7 +18,7 @@ Bundler.require(:default, :development)
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 
-# require 'rack-adequate-json'
+require 'rack/adequate_json'
 
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
